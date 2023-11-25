@@ -20,6 +20,7 @@ export default function NavBar({title}) {
 	return <Box component="nav">
 		<Head>
 			<title>{title}</title>
+			<link rel="icon" href="/favicon.ico" />
 		</Head>
 		<Appbar position="static">
 			<Toolbar>
