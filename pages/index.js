@@ -1,10 +1,12 @@
+import Typography from "@mui/material/Typography";
+
 import NavBar from "@/components/NavBar"
 
 export default function Home() {
 	return (
 		<main>
 			<NavBar />
-			<h1>Banana</h1>
+			<Typography variant="h1">Banana</Typography>
 		</main>
 	)
 }
