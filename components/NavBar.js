@@ -8,6 +8,7 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -20,6 +21,8 @@ import Head from "next/head";
 import NextLink from "next/link";
 
 const drawerWidth = 250;
+
+const pageList = ["about"];
 
 const homeButton = (
 	<Typography variant="h4">
@@ -71,6 +74,17 @@ export default function NavBar({title}) {
 		>
 			{homeButton}
 			<Divider style={{ backgroundColor: 'white' }} />
+			<List>
+				{pageList.map((page) => {
+					return <ListItem key={page}>
+						<NextLink href={`/${page}`} passHref>
+							<ListItemButton color="secondary" style={{ width: '100%' }}>
+								{page}
+							</ListItemButton>
+						</NextLink>
+					</ListItem>
+				})}
+			</List>
 		</Drawer>
 	</Box>;
 }
