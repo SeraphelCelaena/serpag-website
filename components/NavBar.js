@@ -76,13 +76,15 @@ export default function NavBar({title}) {
 			<Divider style={{ backgroundColor: 'white' }} />
 			<List>
 				{pageList.map((page) => {
-					return <ListItem key={page}>
+					return <ListItem key={page} disablePadding>
+					<div style={{width: '100%'}}>
 						<NextLink href={`/${page}`} passHref>
-							<ListItemButton color="secondary" style={{ width: '100%' }}>
-								{page}
+							<ListItemButton>
+								<ListItemText primary={page} />
 							</ListItemButton>
 						</NextLink>
-					</ListItem>
+					</div>
+				</ListItem>
 				})}
 			</List>
 		</Drawer>
