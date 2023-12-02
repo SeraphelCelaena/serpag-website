@@ -80,7 +80,7 @@ export default function NavBar({title}) {
 					<div style={{width: '100%'}}>
 						<NextLink href={`/${page}`} passHref>
 							<ListItemButton>
-								<ListItemText primary={page} />
+								<ListItemText primary={page[0].toUpperCase() + page.slice(1)} sx={{color: theme.palette.primary.contrastText}}/>
 							</ListItemButton>
 						</NextLink>
 					</div>
