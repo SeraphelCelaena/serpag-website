@@ -28,11 +28,11 @@ const homeButton = (
 	<Typography variant="h4">
 		<NextLink href="/" passHref>
 			<Button
-			color="secondary"
-			sx={{ fontSize: '1.5rem', '&:hover': { backgroundColor: 'transparent' } }}
-			disableElevation
-			disableFocusRipple
-			disableRipple
+				color="secondary"
+				sx={{ fontSize: '1.5rem', '&:hover': { backgroundColor: 'transparent' } }}
+				disableElevation
+				disableFocusRipple
+				disableRipple
 			>
 				Serpag
 			</Button>
