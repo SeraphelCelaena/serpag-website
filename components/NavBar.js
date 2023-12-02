@@ -76,15 +76,16 @@ export default function NavBar({title}) {
 			<Divider style={{ backgroundColor: 'white' }} />
 			<List>
 				{pageList.map((page) => {
-					return <ListItem key={page} disablePadding>
-					<div style={{width: '100%'}}>
-						<NextLink href={`/${page}`} passHref>
-							<ListItemButton>
-								<ListItemText primary={page[0].toUpperCase() + page.slice(1)} sx={{color: theme.palette.primary.contrastText}}/>
-							</ListItemButton>
-						</NextLink>
-					</div>
-				</ListItem>
+					return page === "br" ? <Divider style={{ backgroundColor: 'white' }} /> :
+					<ListItem key={page} disablePadding>
+						<div style={{width: '100%'}}>
+							<NextLink href={`/${page}`} passHref>
+								<ListItemButton>
+									<ListItemText primary={page[0].toUpperCase() + page.slice(1)} sx={{color: theme.palette.primary.contrastText}}/>
+								</ListItemButton>
+							</NextLink>
+						</div>
+					</ListItem>
 				})}
 			</List>
 		</Drawer>
