@@ -34,7 +34,7 @@ const homeButton = (
 			disableFocusRipple
 			disableRipple
 			>
-				Home
+				Serpag
 			</Button>
 		</NextLink>
 	</Typography>
