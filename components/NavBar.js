@@ -22,7 +22,7 @@ import NextLink from "next/link";
 
 const drawerWidth = 250;
 
-const pageList = ["about"];
+const pageList = ["wellborne", "br", "about"];
 
 const homeButton = (
 	<Typography variant="h4">
