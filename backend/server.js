@@ -33,6 +33,7 @@ function loadRoutes(directory) {
 		}
 	});
 }
+
 // Auto import routes as they are made
 loadRoutes(`${__dirname}/routes`);
 
