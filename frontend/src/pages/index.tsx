@@ -2,9 +2,6 @@
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-// Project Imports
-import Navbar from '@/components/Navbar';
-
 export default function Home() {
 	return (
 		<main>
