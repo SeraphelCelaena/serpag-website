@@ -13,14 +13,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 
 export default function Navbar() {
-	const [open, setOpen] = useState(false);
+	const [drawerOpen, setDrawerOpen] = useState(false);
 
 	const handleOpenClick = () => {
-		setOpen(!open);
+		setDrawerOpen(!drawerOpen);
 	};
 
 	return (
-		<Box component="nav">
+		<>
 			<AppBar>
 				<Toolbar disableGutters>
 					<IconButton
@@ -42,20 +42,43 @@ export default function Navbar() {
 				</Toolbar>
 			</AppBar>
 			<Drawer
-				open={open}
+				open={drawerOpen}
 				onClose={handleOpenClick}
+				PaperProps={{
+					style: {
+						width: "80%"
+					}
+				}}
+				sx={{
+					mb: "4rem"
+				}}
+				variant="persistent"
+				elevation={0}
 			>
-				<div
+				<Box
 					onClick={handleOpenClick}
 					onKeyDown={handleOpenClick}
+					sx={{
+						width: "80%"
+					}}
 				>
 					<Typography
-						variant="h6"
+						variant="h4"
 					>
-						About me
+						Home
 					</Typography>
-				</div>
+					<Typography
+						variant="h4"
+					>
+						About
+					</Typography>
+					<Typography
+						variant="h4"
+					>
+						Contact
+					</Typography>
+				</Box>
 			</Drawer>
-		</Box>
+		</>
 	)
 }

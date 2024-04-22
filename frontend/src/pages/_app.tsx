@@ -1,5 +1,4 @@
 // MUI Imports
-import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 
 // Next Imports
@@ -13,7 +12,6 @@ export default function App({Component, pageProps}: AppProps) {
 		<>
 			<CssBaseline />
 			<Navbar />
-			<Box sx={{ marginTop: '4rem' }} />
 			<Component {...pageProps} />
 		</>
 	)
