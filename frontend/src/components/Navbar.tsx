@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 
 // MUI Icon Imports
 import MenuIcon from '@mui/icons-material/Menu';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 // React Imports
 import { useState } from 'react';
@@ -21,7 +22,11 @@ export default function Navbar() {
 
 	return (
 		<>
-			<AppBar>
+			<AppBar
+				sx={{
+					marginBottom: "4rem"
+				}}
+			>
 				<Toolbar disableGutters>
 					<IconButton
 						size="large"
@@ -39,45 +44,39 @@ export default function Navbar() {
 					>
 						Home
 					</Typography>
+					<IconButton>
+						<SettingsIcon />
+					</IconButton>
 				</Toolbar>
 			</AppBar>
 			<Drawer
 				open={drawerOpen}
 				onClose={handleOpenClick}
 				PaperProps={{
-					style: {
-						width: "80%"
+					sx: {
+						width: {
+							xs: '80%',
+							md: '15%'
+						}
 					}
 				}}
-				sx={{
-					mb: "4rem"
-				}}
 				variant="persistent"
-				elevation={0}
 			>
-				<Box
-					onClick={handleOpenClick}
-					onKeyDown={handleOpenClick}
-					sx={{
-						width: "80%"
-					}}
+				<Typography
+					variant="h4"
 				>
-					<Typography
-						variant="h4"
-					>
-						Home
-					</Typography>
-					<Typography
-						variant="h4"
-					>
-						About
-					</Typography>
-					<Typography
-						variant="h4"
-					>
-						Contact
-					</Typography>
-				</Box>
+					Home
+				</Typography>
+				<Typography
+					variant="h4"
+				>
+					About
+				</Typography>
+				<Typography
+					variant="h4"
+				>
+					Contact
+				</Typography>
 			</Drawer>
 		</>
 	)
