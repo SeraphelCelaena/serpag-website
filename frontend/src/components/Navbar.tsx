@@ -1,6 +1,5 @@
 // MUI Imports
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
@@ -16,9 +15,13 @@ import { useState } from 'react';
 export default function Navbar() {
 	const [drawerOpen, setDrawerOpen] = useState(false);
 
-	const handleOpenClick = () => {
-		setDrawerOpen(!drawerOpen);
-	};
+	const handleClose = () => {
+		setDrawerOpen(false);
+	}
+
+	const handleOpen = () => {
+		setDrawerOpen(true);
+	}
 
 	return (
 		<>
@@ -30,7 +33,7 @@ export default function Navbar() {
 				<Toolbar disableGutters>
 					<IconButton
 						size="large"
-						onClick={handleOpenClick}
+						onClick={handleOpen}
 						color="inherit"
 					>
 						<MenuIcon
@@ -44,14 +47,25 @@ export default function Navbar() {
 					>
 						Home
 					</Typography>
-					<IconButton>
-						<SettingsIcon />
+					<IconButton
+						size="large"
+						color="inherit"
+						sx={{
+							marginLeft: 'auto',
+							marginRight: '1rem'
+						}}
+					>
+						<SettingsIcon
+							sx={{
+								fontSize: '2rem'
+							}}
+						/>
 					</IconButton>
 				</Toolbar>
 			</AppBar>
 			<Drawer
 				open={drawerOpen}
-				onClose={handleOpenClick}
+				onClose={handleClose}
 				PaperProps={{
 					sx: {
 						width: {
