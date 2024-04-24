@@ -2,6 +2,8 @@
 import AppBar from '@mui/material/AppBar';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
@@ -10,17 +12,29 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 // React Imports
-import { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 
 export default function Navbar() {
 	const [drawerOpen, setDrawerOpen] = useState(false);
+	const [menuOpen, setMenuOpen] = useState(false);
+	const [menuAnchor, setMenuAnchor] = useState<null | HTMLElement>(null);
 
-	const handleClose = () => {
+	const handleDrawerOpen = () => {
+		setDrawerOpen(true);
+	}
+
+	const handleDrawerClose = () => {
 		setDrawerOpen(false);
 	}
 
-	const handleOpen = () => {
-		setDrawerOpen(true);
+	const handleMenuOpen = (event: MouseEvent<HTMLButtonElement>) => {
+		setMenuOpen(true);
+		setMenuAnchor(event.currentTarget);
+	}
+
+	const handleMenuClose = () => {
+		setMenuOpen(false);
+		setMenuAnchor(null);
 	}
 
 	return (
@@ -32,8 +46,8 @@ export default function Navbar() {
 			>
 				<Toolbar disableGutters>
 					<IconButton
+						onClick={handleDrawerOpen}
 						size="large"
-						onClick={handleOpen}
 						color="inherit"
 					>
 						<MenuIcon
@@ -48,6 +62,7 @@ export default function Navbar() {
 						Home
 					</Typography>
 					<IconButton
+						onClick={handleMenuOpen}
 						size="large"
 						color="inherit"
 						sx={{
@@ -61,11 +76,20 @@ export default function Navbar() {
 							}}
 						/>
 					</IconButton>
+					<Menu
+						open={menuOpen}
+						onClose={handleMenuClose}
+						anchorEl={menuAnchor}
+					>
+						<MenuItem>
+							Dark Mode
+						</MenuItem>
+					</Menu>
 				</Toolbar>
 			</AppBar>
 			<Drawer
 				open={drawerOpen}
-				onClose={handleClose}
+				onClose={handleDrawerClose}
 				PaperProps={{
 					sx: {
 						width: {
