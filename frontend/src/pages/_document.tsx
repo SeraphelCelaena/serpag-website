@@ -12,6 +12,10 @@ export default function Document() {
 		<Html lang="en">
 			<Head>
 				<meta name="description" content="Webpage by Serpag" />
+				<meta name="author" content="Serpag" />
+				<meta name="keywords" content="Serpag, Webpage" />
+				<meta charSet="UTF-8" />
+				<link rel="icon" href="/CookieLove.png" />
 			</Head>
 			<body>
 				<Main />

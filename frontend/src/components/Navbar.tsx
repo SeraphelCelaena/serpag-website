@@ -2,6 +2,10 @@
 import AppBar from '@mui/material/AppBar';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,8 +15,9 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-// React Imports
+// React/Next Imports
 import { useState, MouseEvent } from 'react';
+import Link from 'next/link';
 
 export default function Navbar() {
 	const [drawerOpen, setDrawerOpen] = useState(false);
@@ -35,6 +40,13 @@ export default function Navbar() {
 	const handleMenuClose = () => {
 		setMenuOpen(false);
 		setMenuAnchor(null);
+	}
+
+	const routes = {
+		Home: '/',
+		About: '/about',
+		Projects: '/projects',
+		Contact: '/contact'
 	}
 
 	return (
@@ -82,7 +94,7 @@ export default function Navbar() {
 						anchorEl={menuAnchor}
 					>
 						<MenuItem>
-							Dark Mode
+							[WIP] Dark Mode
 						</MenuItem>
 					</Menu>
 				</Toolbar>
@@ -100,21 +112,28 @@ export default function Navbar() {
 				}}
 				variant="persistent"
 			>
-				<Typography
-					variant="h4"
+				<List
+					dense={true}
 				>
-					Home
-				</Typography>
-				<Typography
-					variant="h4"
-				>
-					About
-				</Typography>
-				<Typography
-					variant="h4"
-				>
-					Contact
-				</Typography>
+					{Object.entries(routes).map(([key, value]) => {
+						return <ListItem key={key} sx={{padding: 0}}>
+							<Link
+								href={value}
+								style={{
+									width: '100%',
+									textDecoration: 'none',
+									color: 'inherit'
+								}}
+							>
+								<ListItemButton>
+									<ListItemText>
+										<Typography variant="h5">{'[WIP] ' + key}</Typography>
+									</ListItemText>
+								</ListItemButton>
+							</Link>
+						</ListItem>
+					})}
+				</List>
 			</Drawer>
 		</>
 	)
