@@ -1,7 +1,9 @@
 // MUI Imports
 import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
+import Link from '@mui/material/Link';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -13,11 +15,12 @@ import Typography from '@mui/material/Typography';
 
 // MUI Icon Imports
 import MenuIcon from '@mui/icons-material/Menu';
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 // React/Next Imports
 import { useState, MouseEvent } from 'react';
-import Link from 'next/link';
+import NextLink from 'next/link';
 
 export default function Navbar() {
 	const [drawerOpen, setDrawerOpen] = useState(false);
@@ -43,7 +46,6 @@ export default function Navbar() {
 	}
 
 	const routes = {
-		Home: '/',
 		About: '/about',
 		Projects: '/projects',
 		Contact: '/contact'
@@ -56,11 +58,19 @@ export default function Navbar() {
 					marginBottom: "4rem"
 				}}
 			>
-				<Toolbar disableGutters>
+				<Toolbar
+					disableGutters
+					sx={{
+						padding: '0.25rem 1rem'
+					}}
+				>
 					<IconButton
 						onClick={handleDrawerOpen}
-						size="large"
+						size="medium"
 						color="inherit"
+						sx={{
+							marginRight: '1rem'
+						}}
 					>
 						<MenuIcon
 							sx={{
@@ -68,11 +78,18 @@ export default function Navbar() {
 							}}
 						/>
 					</IconButton>
-					<Typography
-						variant="h3"
+					<Link
+						component={NextLink}
+						href="/"
+						underline="hover"
+						color="inherit"
 					>
-						Home
-					</Typography>
+						<Typography
+							variant="h3"
+						>
+							Home
+						</Typography>
+					</Link>
 					<IconButton
 						onClick={handleMenuOpen}
 						size="large"
@@ -112,14 +129,33 @@ export default function Navbar() {
 				}}
 				variant="persistent"
 			>
+				<Box
+					sx={{
+						padding: '0.25rem 1rem'
+					}}
+				>
+					<IconButton
+						onClick={handleDrawerClose}
+						size="medium"
+						color="inherit"
+					>
+						<MenuOpenIcon
+							sx={{
+								fontSize: '3rem'
+							}}
+						/>
+					</IconButton>
+				</Box>
 				<List
 					dense={true}
 				>
 					{Object.entries(routes).map(([key, value]) => {
 						return <ListItem key={key} sx={{padding: 0}}>
 							<Link
+								component={NextLink}
 								href={value}
-								style={{
+								underline="hover"
+								sx={{
 									width: '100%',
 									textDecoration: 'none',
 									color: 'inherit'
