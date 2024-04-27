@@ -90,30 +90,33 @@ export default function Navbar() {
 							Home
 						</Typography>
 					</Link>
-					<IconButton
-						onClick={handleMenuOpen}
-						size="large"
-						color="inherit"
+					<Box
 						sx={{
 							marginLeft: 'auto',
 							marginRight: '1rem'
 						}}
 					>
-						<SettingsIcon
-							sx={{
-								fontSize: '2rem'
-							}}
-						/>
-					</IconButton>
-					<Menu
-						open={menuOpen}
-						onClose={handleMenuClose}
-						anchorEl={menuAnchor}
-					>
-						<MenuItem>
-							[WIP] Dark Mode
-						</MenuItem>
-					</Menu>
+						<IconButton
+							onClick={handleMenuOpen}
+							size="large"
+							color="inherit"
+						>
+							<SettingsIcon
+								sx={{
+									fontSize: '2rem'
+								}}
+							/>
+						</IconButton>
+						<Menu
+							open={menuOpen}
+							onClose={handleMenuClose}
+							anchorEl={menuAnchor}
+						>
+							<MenuItem>
+								[WIP] Dark Mode
+							</MenuItem>
+						</Menu>
+					</Box>
 				</Toolbar>
 			</AppBar>
 			<Drawer
