@@ -46,10 +46,15 @@ export default function Navbar() {
 		setMenuAnchor(null);
 	}
 
-	const routes = [{
-		About: '/about',
-		Projects: '/projects'
-	}]
+	const routes = [
+		{
+			About: "/about",
+			Projects: "/projects"
+		},
+		{
+			Wellborne: "/wellborne"
+		}
+	]
 
 	return (
 		<>
@@ -149,6 +154,7 @@ export default function Navbar() {
 						/>
 					</IconButton>
 				</Box>
+				<Divider />
 				{routes.map((route, index) => {
 					return <>
 						<List
@@ -178,7 +184,7 @@ export default function Navbar() {
 								</ListItem>
 							})}
 						</List>
-						{index == routes.length && <Divider />}
+						{index !== routes.length - 1 && <Divider />}
 					</>
 				})}
 			</Drawer>
