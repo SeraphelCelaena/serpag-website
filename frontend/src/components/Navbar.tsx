@@ -1,6 +1,7 @@
 // MUI Imports
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
@@ -45,11 +46,10 @@ export default function Navbar() {
 		setMenuAnchor(null);
 	}
 
-	const routes = {
+	const routes = [{
 		About: '/about',
-		Projects: '/projects',
-		Contact: '/contact'
-	}
+		Projects: '/projects'
+	}]
 
 	return (
 		<>
@@ -112,7 +112,7 @@ export default function Navbar() {
 							onClose={handleMenuClose}
 							anchorEl={menuAnchor}
 						>
-							<MenuItem>
+							<MenuItem onClick={handleMenuClose}>
 								[WIP] Dark Mode
 							</MenuItem>
 						</Menu>
@@ -149,30 +149,38 @@ export default function Navbar() {
 						/>
 					</IconButton>
 				</Box>
-				<List
-					dense={true}
-				>
-					{Object.entries(routes).map(([key, value]) => {
-						return <ListItem key={key} sx={{padding: 0}}>
-							<Link
-								component={NextLink}
-								href={value}
-								underline="hover"
-								sx={{
-									width: '100%',
-									textDecoration: 'none',
-									color: 'inherit'
-								}}
-							>
-								<ListItemButton>
-									<ListItemText>
-										<Typography variant="h5">{'[WIP] ' + key}</Typography>
-									</ListItemText>
-								</ListItemButton>
-							</Link>
-						</ListItem>
-					})}
-				</List>
+				{routes.map((route, index) => {
+					return <>
+						<List
+							dense={true}
+							key={index}
+						>
+							{Object.entries(route).map(([key, value]) => {
+								return <ListItem key={key} sx={{padding: 0}}>
+									<Link
+										component={NextLink}
+										href={value}
+										underline="hover"
+										sx={{
+											width: '100%',
+											textDecoration: 'none',
+											color: 'inherit'
+										}}
+									>
+										<ListItemButton
+											onClick={handleDrawerClose}
+										>
+											<ListItemText>
+												<Typography variant="h5">{'[WIP] ' + key}</Typography>
+											</ListItemText>
+										</ListItemButton>
+									</Link>
+								</ListItem>
+							})}
+						</List>
+						{index == routes.length && <Divider />}
+					</>
+				})}
 			</Drawer>
 		</>
 	)
