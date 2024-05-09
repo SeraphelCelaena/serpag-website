@@ -36,23 +36,33 @@ export default function Navbar() {
 		setDrawerOpen(false);
 	}
 
-	const handleMenuOpen = (event: MouseEvent<HTMLButtonElement>) => {
+	const handleSettingsMenuOpen = (event: MouseEvent<HTMLButtonElement>) => {
 		setMenuOpen(true);
 		setMenuAnchor(event.currentTarget);
 	}
 
-	const handleMenuClose = () => {
+	const handleSettingsMenuClose = () => {
 		setMenuOpen(false);
 		setMenuAnchor(null);
 	}
 
+	const toggleDarkMode = () => {
+		console.log("ToggleDark Mode");
+	}
+
 	const routes = [
 		{
-			About: "/about",
-			Projects: "/projects"
+			"[WIP] About": "/about",
+			"[WIP] Projects": "/projects"
 		},
 		{
-			Wellborne: "/wellborne"
+			"[WIP] Wellborne": "/wellborne"
+		}
+	]
+
+	const settingsMenuItems = [
+		{
+			"[WIP] Dark Mode": toggleDarkMode
 		}
 	]
 
@@ -102,7 +112,7 @@ export default function Navbar() {
 						}}
 					>
 						<IconButton
-							onClick={handleMenuOpen}
+							onClick={handleSettingsMenuOpen}
 							size="large"
 							color="inherit"
 						>
@@ -114,10 +124,10 @@ export default function Navbar() {
 						</IconButton>
 						<Menu
 							open={menuOpen}
-							onClose={handleMenuClose}
+							onClose={handleSettingsMenuClose}
 							anchorEl={menuAnchor}
 						>
-							<MenuItem onClick={handleMenuClose}>
+							<MenuItem onClick={handleSettingsMenuClose}>
 								[WIP] Dark Mode
 							</MenuItem>
 						</Menu>
@@ -177,7 +187,7 @@ export default function Navbar() {
 											onClick={handleDrawerClose}
 										>
 											<ListItemText>
-												<Typography variant="h5">{'[WIP] ' + key}</Typography>
+												<Typography variant="h5">{key}</Typography>
 											</ListItemText>
 										</ListItemButton>
 									</Link>
