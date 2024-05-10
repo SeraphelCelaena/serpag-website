@@ -1,3 +1,7 @@
+import RootLayout from "@/components/admin/RootLayout";
+
 export default function Admin() {
-	return <div>Admin</div>;
+	return <RootLayout>
+		Admin
+	</RootLayout>;
 }
