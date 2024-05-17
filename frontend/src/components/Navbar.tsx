@@ -166,10 +166,9 @@ export default function Navbar() {
 				</Box>
 				<Divider />
 				{routes.map((route, index) => {
-					return <>
+					return <div key={index}>
 						<List
 							dense={true}
-							key={index}
 						>
 							{Object.entries(route).map(([key, value]) => {
 								return <ListItem key={key} sx={{padding: 0}}>
@@ -195,7 +194,7 @@ export default function Navbar() {
 							})}
 						</List>
 						{index !== routes.length - 1 && <Divider />}
-					</>
+					</div>
 				})}
 			</Drawer>
 		</>
