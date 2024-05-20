@@ -115,6 +115,7 @@ export default function Navbar() {
 							onClick={handleSettingsMenuOpen}
 							size="large"
 							color="inherit"
+							aria-label="Settings"
 						>
 							<SettingsIcon
 								sx={{
@@ -126,6 +127,7 @@ export default function Navbar() {
 							open={menuOpen}
 							onClose={handleSettingsMenuClose}
 							anchorEl={menuAnchor}
+							aria-label="Settings Menu"
 						>
 							<MenuItem onClick={handleSettingsMenuClose}>
 								[WIP] Dark Mode
@@ -156,6 +158,7 @@ export default function Navbar() {
 						onClick={handleDrawerClose}
 						size="medium"
 						color="inherit"
+						aria-label="Close Drawer"
 					>
 						<MenuOpenIcon
 							sx={{
