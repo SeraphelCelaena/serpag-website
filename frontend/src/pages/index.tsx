@@ -14,7 +14,9 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			</Head>
 			<main>
-				<Container>
+				<Container sx={{
+					marginTop: '4rem',
+				}}>
 					<Typography variant="h1">Home</Typography>
 					<div>
 						<Typography variant="h2">About me</Typography>

@@ -1,3 +1,5 @@
 export default function Projects() {
-	return <div>Projects</div>;
+	return <div style={{
+		marginTop: '4.5rem',
+	}}>Projects</div>;
 }

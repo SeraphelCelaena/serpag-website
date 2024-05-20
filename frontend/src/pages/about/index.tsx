@@ -1,3 +1,5 @@
 export default function About() {
-	return <div>About</div>;
+	return <div style={{
+		marginTop: '4.5rem',
+	}}>About</div>;
 }
