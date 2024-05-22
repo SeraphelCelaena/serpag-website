@@ -86,6 +86,7 @@ export default function Navbar() {
 						sx={{
 							marginRight: '1rem'
 						}}
+						aria-label="Open Drawer"
 					>
 						<MenuIcon
 							sx={{
@@ -127,7 +128,6 @@ export default function Navbar() {
 							open={menuOpen}
 							onClose={handleSettingsMenuClose}
 							anchorEl={menuAnchor}
-							aria-label="Settings Menu"
 						>
 							<MenuItem onClick={handleSettingsMenuClose}>
 								[WIP] Dark Mode
