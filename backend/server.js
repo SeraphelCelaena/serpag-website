@@ -27,7 +27,7 @@ function loadRoutes(directory) {
 		} else if (file.endsWith('.js')) {
 			// If the file is not a directory, import the route
 			const relativePath = path.relative(__dirname, fullPath);
-			const routePath = '/api/' + path.parse(relativePath).name;
+			const routePath = '/' + path.parse(relativePath).name;
 			const route = require(fullPath);
 			app.use(routePath, route);
 		}
