@@ -2,13 +2,13 @@ import express from "express";
 import {createServer} from "node:http";
 import {Server} from "socket.io";
 
-const PORT = process.env.PORT || 5050;
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 const server = createServer(app);
 const io = new Server(server, {
 	cors: {
-		origin: "http://localhost:3000"
+		origin: ["http://localhost:3000", "serpag.ca", "http://api.serpag.ca", "https://serpag.ca", "https://api.serpag.ca"]
 	},
 	connectionStateRecovery: {}
 });
