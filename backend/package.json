@@ -1,19 +1,20 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "Backend for the serpag.ca website",
-  "main": "server.js",
+  "description": "SerpagChat backend",
+  "license": "MIT",
+  "author": "serpag",
+  "type": "module",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "author": "Serpag",
-  "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.3.2",
-    "morgan": "^1.10.0"
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongodb": "^7.1.1",
+    "mongoose": "^9.4.1",
+    "socket.io": "^4.8.3"
   }
 }
